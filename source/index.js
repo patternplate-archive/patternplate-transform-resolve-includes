@@ -1,8 +1,6 @@
 import {sep} from 'path';
-import {
-	getPatternIdRegistry,
-	resolvePatternFilePath
-} from 'patternplate-transforms-core';
+import {getPatternIdRegistry, resolvePatternFilePath} from 'patternplate-transforms-core';
+import tryRequire from 'try-require';
 
 const detect = /@import(.+?)["|'](.*)["|'];/g;
 
@@ -16,8 +14,6 @@ export default application => {
 		const resolve = configuration.resolve;
 
 		const rewritten = source.replace(detect, (match, option, name) => {
-			let result = match;
-
 			const resolvedPath = resolvePatternFilePath(
 					registry, resolve,
 					resultName, configuration.outFormat,
@@ -25,19 +21,25 @@ export default application => {
 				.split(sep)
 				.join('/');
 
-			const fromNPM = name.includes('npm://') || name.includes('node_modules/');
-
-			if (!resolvedPath && !fromNPM) {
-				throw new Error(
-					`Could not resolve dependency ${name}. Neither in pattern.json nor from npm.`);
-			} else if (!resolvedPath && fromNPM) {
-				const packageName = name.replace('npm://', '').split('/')[0];
-				file.meta.dependencies.push(packageName);
-			} else {
-				result = `@import${option}'${resolvedPath}';`;
+			if (resolvedPath) {
+				return `@import${option}'${resolvedPath}';`;
 			}
 
-			return result;
+			const npmPath = tryRequire.resolve(name.replace('npm://', ''));
+
+			if (npmPath) {
+				return match;
+			}
+
+			throw new Error(
+				[
+					`Could not resolve dependency ${name} for`,
+					`${file.pattern.id}:${file.name}, it is not`,
+					`in pattern.json and could not be resolved from npm.`,
+					`Available pattern dependencies:`,
+					Object.keys(file.dependencies).join(', ')
+				].join(' ')
+			);
 		});
 
 		file.buffer = rewritten;
