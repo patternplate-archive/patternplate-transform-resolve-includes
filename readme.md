@@ -13,10 +13,12 @@ npm install --save patternplate-transform-resolve-includes
 
 ### Input
 
-```less
-// foo/bar/foo/index.js
+```css
+// foo/bar/foo/index.css
 @import 'bar';
 @import 'baz';
+@import 'npm://normalize.css';
+@import 'normalize.css';
 ```
 
 ```js
@@ -32,9 +34,11 @@ npm install --save patternplate-transform-resolve-includes
 
 ### Output
 
-```less
-@import 'baz/index.less';
-@import '../../baz/bar/index.less';
+```css
+@import 'baz/index.css';
+@import '../../baz/bar/index.css';
+@import 'npm://normalize.css';
+@import 'normalize.css';
 ```
 
 ## Configuration
