@@ -1,6 +1,6 @@
 {
   "name": "patternplate-transform-resolve-includes",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "patternplate transform to rewrite dependency includes to interoperable paths",
   "main": "distribution/index.js",
   "files": [
@@ -48,6 +48,10 @@
     "email": "jobs@sinnerschrader.com"
   },
   "contributors": [
+    {
+      "name": "Tim Brust",
+      "email": "tim.brust@sinnerschrader.com"
+    },
     {
       "name": "Mario Nebl",
       "email": "mario.nebl@sinnerschrader.com"
