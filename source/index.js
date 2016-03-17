@@ -28,6 +28,8 @@ export default application => {
 			const npmPath = tryRequire.resolve(name.replace('npm://', ''));
 
 			if (npmPath) {
+				const packageName = name.replace('npm://', '').split('/')[0];
+				file.meta.dependencies.push(packageName);
 				return match;
 			}
 
