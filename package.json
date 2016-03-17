@@ -1,6 +1,6 @@
 {
   "name": "patternplate-transform-resolve-includes",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "patternplate transform to rewrite dependency includes to interoperable paths",
   "main": "distribution/index.js",
   "files": [

@@ -1,3 +1,13 @@
+<a name="0.1.4"></a>
+## [0.1.4](https://github.com/sinnerschrader/patternplate-transform-resolve-includes/compare/v0.1.2...v0.1.4) (2016-03-17)
+
+
+### Bug Fixes
+
+* **system:** push npm dependencies into dependencies list again ([1b08446](https://github.com/sinnerschrader/patternplate-transform-resolve-includes/commit/1b08446)), closes [sinnerschrader/patternplate#54](https://github.com/sinnerschrader/patternplate/issues/54)
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/sinnerschrader/patternplate-transform-resolve-includes/compare/v0.1.1...v0.1.2) (2016-03-13)
 
