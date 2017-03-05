@@ -1,5 +1,7 @@
 # patternplate-transform-resolve-includes
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/sinnerschrader/patternplate-transform-resolve-includes.svg)](https://greenkeeper.io/)
+
 [patternplate](/sinnerschrader/patternplate)
 transform pattern dependency includes to interoperable paths.
 
