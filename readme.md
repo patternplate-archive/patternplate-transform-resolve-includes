@@ -1,3 +1,6 @@
+> # ⚠️ Deprecated
+> Use instead: https://patternplate.github.io/
+
 # patternplate-transform-resolve-includes
 
 [patternplate](/sinnerschrader/patternplate)
